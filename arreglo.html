@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Revisa el resultado -> botón derecho del mouse en inspeccionar -> selecciona consola</h2>
+    <script>
+                // Crear un arreglo de objetos
+        const personas = [
+            { nombre: "Juan", edad: 30 },
+            { nombre: "María", edad: 25 }
+        ];
+
+        // Guardar el arreglo en localStorage (convertido a JSON)
+        localStorage.setItem("personas", JSON.stringify(personas));
+
+        // Recuperar el arreglo desde localStorage
+        let arreglo = JSON.parse(localStorage.getItem("personas"));
+
+        // Mostrar las personas en la consola
+        console.log(arreglo);
+        for (persona of arreglo){
+            console.log(persona.nombre+' '+persona.edad)
+        }
+
+
+
+        // Filtrar para eliminar una persona por nombre
+        const nombreAEliminar = "Juan";
+        arreglo = arreglo.filter(persona => persona.nombre !== nombreAEliminar);
+
+        // Guardar el arreglo actualizado en localStorage
+        localStorage.setItem("personas", JSON.stringify(arreglo));
+
+        arreglo = JSON.parse(localStorage.getItem("personas"));
+        // Mostrar las personas en la consola
+
+        for (persona of arreglo){
+            console.log('->'+persona.nombre+' '+persona.edad)
+        }
+
+
+        // Mostrar el arreglo actualizado
+        console.log(arreglo);
+
+
+    </script>
+</body>
+</html>
